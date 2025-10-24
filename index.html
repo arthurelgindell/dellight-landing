@@ -222,6 +222,43 @@
             opacity: 1;
         }
 
+        /* GLADIATOR Card with Hero Image */
+        .product-card.gladiator-featured {
+            background-image: url('gladiator-hero.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-color: var(--gold);
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .product-card.gladiator-featured::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.85) 60%, rgba(10,10,10,0.95) 100%);
+            z-index: 0;
+        }
+
+        .product-card.gladiator-featured > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-card.gladiator-featured .product-icon {
+            display: none;
+        }
+
+        .product-card.gladiator-featured:hover {
+            box-shadow: 0 30px 60px rgba(212,175,55,0.3);
+        }
+
         .product-icon {
             font-size: 3rem;
             margin-bottom: 1.5rem;
@@ -438,7 +475,7 @@
                     </ul>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card gladiator-featured">
                     <div class="product-icon">🛡️</div>
                     <h3 class="product-title">GLADIATOR</h3>
                     <p class="product-description">
