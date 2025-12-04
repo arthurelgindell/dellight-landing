@@ -669,6 +669,85 @@
             font-weight: 600;
         }
 
+        /* NVIDIA Showcase Section */
+        .nvidia-showcase {
+            background: linear-gradient(135deg, rgba(118, 185, 0, 0.1), rgba(0, 0, 0, 0.8));
+            border: 2px solid var(--nvidia-green);
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem auto;
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nvidia-showcase::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(118, 185, 0, 0.15), transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .nvidia-showcase-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .nvidia-logo-text {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            color: var(--nvidia-green);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 30px rgba(118, 185, 0, 0.5);
+        }
+
+        .nvidia-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--gray-100);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .nvidia-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .nvidia-feature {
+            background: rgba(118, 185, 0, 0.05);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(118, 185, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nvidia-feature:hover {
+            transform: translateY(-5px);
+            border-color: var(--nvidia-green);
+            box-shadow: 0 15px 40px rgba(118, 185, 0, 0.3);
+        }
+
+        .nvidia-feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--nvidia-green);
+            margin-bottom: 0.8rem;
+        }
+
+        .nvidia-feature-text {
+            color: var(--gray-100);
+            line-height: 1.7;
+        }
+
         /* Footer */
         footer {
             padding: 4rem 4rem 2rem;
@@ -786,6 +865,54 @@
                 <div class="cta-group">
                     <a href="mailto:hello@dellight.ai" class="btn btn-primary">Request Demo</a>
                     <a href="#architecture" class="btn btn-secondary">View Architecture</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- NVIDIA Showcase -->
+        <section class="section">
+            <div class="nvidia-showcase">
+                <div class="nvidia-showcase-content">
+                    <div class="nvidia-logo-text">NVIDIA</div>
+                    <div class="nvidia-logo-text" style="font-size: clamp(1.8rem, 4vw, 3rem); margin-top: -1rem;">DGX SPARK</div>
+                    <p class="nvidia-subtitle">
+                        Enterprise AI Appliance Platform of Choice for GLADIATOR
+                    </p>
+                    <p style="color: var(--gray-400); max-width: 800px; margin: 0 auto 3rem; line-height: 1.8;">
+                        GLADIATOR is exclusively built on NVIDIA DGX Spark, the world's most advanced AI platform.
+                        This turnkey appliance delivers unmatched performance for autonomous cyber defense with
+                        enterprise-grade reliability and support.
+                    </p>
+
+                    <div class="nvidia-features">
+                        <div class="nvidia-feature">
+                            <div class="nvidia-feature-title">🚀 Peak Performance</div>
+                            <div class="nvidia-feature-text">
+                                NVIDIA GPU acceleration for real-time threat detection and model inference at scale
+                            </div>
+                        </div>
+
+                        <div class="nvidia-feature">
+                            <div class="nvidia-feature-title">⚡ Turnkey Deployment</div>
+                            <div class="nvidia-feature-text">
+                                Pre-configured appliance ships ready to defend. Plug in, power on, and protect
+                            </div>
+                        </div>
+
+                        <div class="nvidia-feature">
+                            <div class="nvidia-feature-title">🔒 Enterprise Grade</div>
+                            <div class="nvidia-feature-text">
+                                NVIDIA-backed support and reliability for mission-critical security operations
+                            </div>
+                        </div>
+
+                        <div class="nvidia-feature">
+                            <div class="nvidia-feature-title">🤖 AI Optimized</div>
+                            <div class="nvidia-feature-text">
+                                Purpose-built for Foundation-Sec-8B adversarial training and real-time classification
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
