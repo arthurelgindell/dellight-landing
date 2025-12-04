@@ -314,6 +314,44 @@
             animation: fadeInUp 0.8s ease-out 0.2s backwards;
         }
 
+        .combat-ready-headline {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: -0.5rem auto 2rem;
+            color: var(--nvidia-green);
+            text-shadow:
+                0 0 20px rgba(118, 185, 0, 0.8),
+                0 0 40px rgba(118, 185, 0, 0.5),
+                0 0 60px rgba(118, 185, 0, 0.3);
+            animation: fadeInUp 0.8s ease-out 0.3s backwards, pulseGlow 3s ease-in-out infinite;
+            position: relative;
+            display: inline-block;
+            padding: 0.5rem 2rem;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(118, 185, 0, 0.1) 50%,
+                transparent 100%);
+            border-left: 3px solid var(--nvidia-green);
+            border-right: 3px solid var(--nvidia-green);
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                text-shadow:
+                    0 0 20px rgba(118, 185, 0, 0.8),
+                    0 0 40px rgba(118, 185, 0, 0.5),
+                    0 0 60px rgba(118, 185, 0, 0.3);
+            }
+            50% {
+                text-shadow:
+                    0 0 30px rgba(118, 185, 0, 1),
+                    0 0 60px rgba(118, 185, 0, 0.7),
+                    0 0 90px rgba(118, 185, 0, 0.5);
+            }
+        }
+
         .hero-subtitle {
             font-size: clamp(1.2rem, 3vw, 2rem);
             color: var(--gray-100);
@@ -857,6 +895,9 @@
                     ⚡ POWERED BY NVIDIA DGX SPARK
                 </div>
                 <h1>GLADIATOR</h1>
+                <div class="combat-ready-headline">
+                    Combat Ready Cyber Defense
+                </div>
                 <p class="hero-subtitle">
                     Autonomous cyber defense platform with ML-powered threat detection,
                     distributed honeypot mesh, and adversarial training infrastructure.
