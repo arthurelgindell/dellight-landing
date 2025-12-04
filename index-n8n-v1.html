@@ -14,30 +14,18 @@
         }
 
         :root {
-            /* Rebalanced color palette - emphasize blue/green */
+            /* n8n-inspired color palette */
             --dark-base: #0A0A0F;
             --dark-surface: #0E0918;
             --dark-elevated: #1A1625;
-
-            /* Blue (primary) */
-            --blue-400: #60A5FA;
-            --blue-500: #3B82F6;
-            --blue-600: #2563EB;
-            --blue-700: #1D4ED8;
-
-            /* Green (secondary) */
-            --green-400: #34D399;
-            --green-500: #10B981;
-            --green-600: #059669;
-
-            /* Purple (accent) */
             --purple-500: #8B5CF6;
             --purple-600: #7C3AED;
-
-            /* Pink (minimal accent) */
+            --purple-700: #6D28D9;
             --pink-500: #EC4899;
-
-            /* Neutrals */
+            --pink-600: #DB2777;
+            --pink-700: #BE185D;
+            --blue-400: #60A5FA;
+            --blue-500: #3B82F6;
             --white: #FFFFFF;
             --gray-50: #F9FAFB;
             --gray-100: #F3F4F6;
@@ -46,43 +34,52 @@
         }
 
         @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 0.6; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
+            0%, 100% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes countUp {
-            from { opacity: 0; transform: scale(0.5); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -1000px 0; }
-            100% { background-position: 1000px 0; }
-        }
-
-        @keyframes ripple {
-            0% { transform: scale(0); opacity: 1; }
-            100% { transform: scale(4); opacity: 0; }
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         body {
@@ -91,39 +88,6 @@
             color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
-            cursor: none;
-        }
-
-        /* Custom Cursor */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--blue-500);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: all 0.1s ease;
-            transform: translate(-50%, -50%);
-        }
-
-        .cursor-follower {
-            width: 40px;
-            height: 40px;
-            background: radial-gradient(circle, var(--blue-500), transparent);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            opacity: 0.3;
-            transition: all 0.3s ease;
-            transform: translate(-50%, -50%);
-        }
-
-        .cursor.hover {
-            width: 60px;
-            height: 60px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.2), transparent);
         }
 
         /* Animated gradient background */
@@ -134,47 +98,46 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            background: linear-gradient(-45deg, var(--dark-base), var(--dark-surface), #0a1628, #081a2e);
+            background: linear-gradient(-45deg, var(--dark-base), var(--dark-surface), #1a0b2e, #16213e);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
         }
 
-        /* Floating gradient orbs - rebalanced colors */
+        /* Floating gradient orbs */
         .orb {
             position: fixed;
             border-radius: 50%;
-            filter: blur(90px);
-            opacity: 0.35;
-            animation: float 25s ease-in-out infinite;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
             pointer-events: none;
-            transition: transform 0.3s ease-out;
         }
 
         .orb-1 {
             top: 20%;
             left: 10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--blue-500), transparent);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--purple-500), transparent);
             animation-delay: 0s;
         }
 
         .orb-2 {
             top: 60%;
             right: 10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--green-500), transparent);
-            animation-delay: 8s;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--pink-500), transparent);
+            animation-delay: 7s;
         }
 
         .orb-3 {
             bottom: 10%;
             left: 50%;
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, var(--purple-500), transparent);
-            animation-delay: 16s;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--blue-500), transparent);
+            animation-delay: 14s;
         }
 
         .content {
@@ -186,19 +149,19 @@
         nav {
             position: sticky;
             top: 0;
-            background: rgba(14, 9, 24, 0.7);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+            background: rgba(14, 9, 24, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
             padding: 1.2rem 4rem;
             z-index: 1000;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         nav.scrolled {
             padding: 0.8rem 4rem;
             background: rgba(14, 9, 24, 0.95);
-            box-shadow: 0 4px 30px rgba(59, 130, 246, 0.15);
+            box-shadow: 0 4px 30px rgba(139, 92, 246, 0.1);
         }
 
         .nav-container {
@@ -213,13 +176,12 @@
             font-size: 1.6rem;
             font-weight: 800;
             letter-spacing: 2px;
-            background: linear-gradient(135deg, var(--blue-500), var(--green-500));
+            background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-decoration: none;
             transition: transform 0.3s ease;
-            cursor: pointer;
         }
 
         .logo:hover {
@@ -239,7 +201,6 @@
             font-size: 0.95rem;
             transition: all 0.3s ease;
             position: relative;
-            cursor: pointer;
         }
 
         .nav-links a::after {
@@ -249,7 +210,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--blue-500), var(--green-500));
+            background: linear-gradient(90deg, var(--purple-500), var(--pink-500));
             transition: width 0.3s ease;
         }
 
@@ -261,7 +222,7 @@
             width: 100%;
         }
 
-        /* Magnetic Buttons */
+        /* Buttons */
         .btn {
             padding: 1rem 2.5rem;
             font-size: 1rem;
@@ -277,9 +238,9 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--blue-600), var(--green-600));
+            background: linear-gradient(135deg, var(--purple-600), var(--pink-600));
             color: var(--white);
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
         }
 
         .btn-primary::before {
@@ -289,8 +250,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.6s;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
         }
 
         .btn-primary:hover::before {
@@ -299,19 +260,19 @@
 
         .btn-primary:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.6);
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.6);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--blue-500);
-            border: 2px solid var(--blue-500);
+            color: var(--purple-500);
+            border: 2px solid var(--purple-500);
         }
 
         .btn-secondary:hover {
-            background: rgba(59, 130, 246, 0.1);
-            border-color: var(--green-500);
-            color: var(--green-500);
+            background: rgba(139, 92, 246, 0.1);
+            border-color: var(--pink-500);
+            color: var(--pink-500);
             transform: translateY(-3px);
         }
 
@@ -341,7 +302,7 @@
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, var(--blue-400), var(--green-400), var(--blue-600));
+            background: linear-gradient(135deg, var(--purple-500), var(--pink-500), var(--blue-400));
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -369,13 +330,13 @@
             animation: fadeInUp 1s ease-out 0.6s forwards;
         }
 
-        /* Stats Grid with Counter Animation */
+        /* Stats Grid */
         .stats-section {
             padding: 6rem 4rem;
-            background: rgba(14, 9, 24, 0.5);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(59, 130, 246, 0.15);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+            background: rgba(14, 9, 24, 0.4);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(139, 92, 246, 0.1);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
         }
 
         .stats-grid {
@@ -389,22 +350,24 @@
 
         .stat-item {
             opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
             transition: transform 0.3s ease;
-            cursor: pointer;
         }
 
         .stat-item:hover {
-            transform: translateY(-8px) scale(1.05);
+            transform: translateY(-5px);
         }
 
-        .stat-item.counted {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+        .stat-item:nth-child(4) { animation-delay: 0.4s; }
+        .stat-item:nth-child(5) { animation-delay: 0.5s; }
 
         .stat-number {
             font-size: 4rem;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--blue-500), var(--green-500));
+            background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -447,7 +410,7 @@
             font-weight: 300;
         }
 
-        /* Interactive Product Grid */
+        /* Product Grid */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -458,14 +421,13 @@
         .product-card {
             background: rgba(26, 22, 37, 0.6);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(139, 92, 246, 0.2);
             border-radius: 20px;
             padding: 3rem;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            transform-style: preserve-3d;
         }
 
         .product-card::before {
@@ -475,7 +437,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--blue-500), var(--green-500));
+            background: linear-gradient(90deg, var(--purple-500), var(--pink-500));
             opacity: 0;
             transition: opacity 0.4s ease;
         }
@@ -487,16 +449,16 @@
             left: 50%;
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent);
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1), transparent);
             transform: translate(-50%, -50%);
             opacity: 0;
             transition: opacity 0.4s ease;
-            pointer-events: none;
         }
 
         .product-card:hover {
-            border-color: var(--blue-500);
-            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+            transform: translateY(-10px);
+            border-color: var(--purple-500);
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
         }
 
         .product-card:hover::before {
@@ -507,10 +469,10 @@
             opacity: 1;
         }
 
-        /* Featured GLADIATOR Card with NVIDIA DGX */
+        /* Featured GLADIATOR Card */
         .product-card.featured {
             grid-column: span 2;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1)),
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1)),
                         url('gladiator-hero.png');
             background-size: cover;
             background-position: center;
@@ -519,11 +481,11 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            border-color: var(--blue-600);
+            border-color: var(--pink-600);
         }
 
         .product-card.featured::before {
-            background: linear-gradient(90deg, var(--blue-600), var(--green-600));
+            background: linear-gradient(90deg, var(--pink-600), var(--purple-600));
         }
 
         .product-card.featured::after {
@@ -542,32 +504,14 @@
             z-index: 1;
         }
 
-        /* NVIDIA DGX Badge */
-        .nvidia-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 0.8rem 1.5rem;
-            background: linear-gradient(135deg, rgba(118, 185, 0, 0.15), rgba(59, 130, 246, 0.15));
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(118, 185, 0, 0.3);
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 1.5rem;
-            color: #76B900;
-        }
-
         .product-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             padding: 0.6rem 1.2rem;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2));
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.3);
             border-radius: 25px;
             font-size: 0.75rem;
             font-weight: 700;
@@ -579,14 +523,14 @@
         .product-icon {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            animation: float 4s ease-in-out infinite;
+            animation: float 3s ease-in-out infinite;
         }
 
         .product-title {
             font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--blue-500), var(--green-500));
+            background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -594,7 +538,7 @@
 
         .product-card.featured .product-title {
             font-size: 2.8rem;
-            background: linear-gradient(135deg, var(--blue-400), var(--green-400));
+            background: linear-gradient(135deg, var(--pink-500), var(--purple-500));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -619,18 +563,13 @@
             position: relative;
             color: var(--gray-100);
             font-size: 0.95rem;
-            transition: transform 0.3s ease;
-        }
-
-        .product-features li:hover {
-            transform: translateX(5px);
         }
 
         .product-features li::before {
             content: '→';
             position: absolute;
             left: 0;
-            background: linear-gradient(135deg, var(--blue-500), var(--green-500));
+            background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -639,7 +578,7 @@
         }
 
         .product-link {
-            color: var(--blue-500);
+            color: var(--purple-500);
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
@@ -650,7 +589,7 @@
         }
 
         .product-link:hover {
-            color: var(--green-500);
+            color: var(--pink-500);
             gap: 1rem;
         }
 
@@ -669,7 +608,7 @@
             border-radius: 24px;
             padding: 5rem 4rem;
             margin: 5rem auto;
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(139, 92, 246, 0.2);
         }
 
         .tech-grid {
@@ -683,19 +622,18 @@
             text-align: center;
             padding: 2rem;
             border-radius: 16px;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             position: relative;
-            cursor: pointer;
         }
 
         .tech-item::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
             border-radius: 16px;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.3s ease;
         }
 
         .tech-item:hover::before {
@@ -703,17 +641,17 @@
         }
 
         .tech-item:hover {
-            transform: translateY(-10px) scale(1.05);
+            transform: translateY(-5px);
         }
 
         .tech-icon {
             font-size: 4rem;
             margin-bottom: 1.5rem;
-            animation: float 5s ease-in-out infinite;
+            animation: float 4s ease-in-out infinite;
         }
 
         .tech-item:nth-child(even) .tech-icon {
-            animation-delay: 2.5s;
+            animation-delay: 2s;
         }
 
         .tech-name {
@@ -733,11 +671,11 @@
         /* CTA Section */
         .cta-section {
             text-align: center;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
             border-radius: 24px;
             padding: 7rem 4rem;
             margin: 6rem auto;
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -749,7 +687,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent);
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1), transparent);
             animation: float 20s ease-in-out infinite;
         }
 
@@ -776,7 +714,7 @@
         /* Footer */
         footer {
             background: rgba(14, 9, 24, 0.8);
-            border-top: 1px solid rgba(59, 130, 246, 0.1);
+            border-top: 1px solid rgba(139, 92, 246, 0.1);
             padding: 5rem 4rem 3rem;
         }
 
@@ -790,7 +728,7 @@
         }
 
         .footer-section h3 {
-            background: linear-gradient(135deg, var(--blue-500), var(--green-500));
+            background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -810,7 +748,6 @@
             color: var(--gray-400);
             text-decoration: none;
             transition: all 0.3s ease;
-            cursor: pointer;
         }
 
         .footer-section a:hover {
@@ -822,14 +759,14 @@
             max-width: 1640px;
             margin: 0 auto;
             padding-top: 3rem;
-            border-top: 1px solid rgba(59, 130, 246, 0.1);
+            border-top: 1px solid rgba(139, 92, 246, 0.1);
             text-align: center;
             color: var(--gray-400);
             font-size: 0.9rem;
         }
 
         .footer-bottom a {
-            background: linear-gradient(135deg, var(--blue-500), var(--green-500));
+            background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -852,12 +789,6 @@
         @media (max-width: 1024px) {
             .product-card.featured {
                 grid-column: span 1;
-            }
-            body {
-                cursor: auto;
-            }
-            .cursor, .cursor-follower {
-                display: none;
             }
         }
 
@@ -894,10 +825,6 @@
     </style>
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
     <!-- Animated Background -->
     <div class="gradient-bg"></div>
     <div class="orb orb-1"></div>
@@ -915,7 +842,7 @@
                     <a href="aya-platform.html">AYA Platform</a>
                     <a href="solutions.html">Solutions</a>
                     <a href="about.html">About</a>
-                    <a href="mailto:hello@dellight.ai" class="btn btn-primary" style="padding: 0.8rem 1.8rem;">Contact</a>
+                    <a href="mailto:arthur.dell@dellight.ai" class="btn btn-primary" style="padding: 0.8rem 1.8rem;">Contact</a>
                 </div>
             </div>
         </nav>
@@ -934,7 +861,7 @@
                 </p>
 
                 <div class="cta-group">
-                    <a href="mailto:hello@dellight.ai" class="btn btn-primary">Get Started →</a>
+                    <a href="mailto:arthur.dell@dellight.ai" class="btn btn-primary">Get Started →</a>
                     <a href="#products" class="btn btn-secondary">Explore Products</a>
                 </div>
             </div>
@@ -943,25 +870,25 @@
         <!-- Stats Section -->
         <div class="stats-section">
             <div class="stats-grid">
-                <div class="stat-item" data-target="800">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">GB RAM</span>
+                <div class="stat-item">
+                    <span class="stat-number">800GB</span>
+                    <span class="stat-label">Total RAM</span>
                 </div>
-                <div class="stat-item" data-target="160">
-                    <span class="stat-number">0</span>
+                <div class="stat-item">
+                    <span class="stat-number">160</span>
                     <span class="stat-label">GPU Cores</span>
                 </div>
-                <div class="stat-item" data-target="132">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">K+ Embeddings</span>
+                <div class="stat-item">
+                    <span class="stat-number">132K+</span>
+                    <span class="stat-label">Vector Embeddings</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">24/7</span>
                     <span class="stat-label">Autonomous Operation</span>
                 </div>
-                <div class="stat-item" data-target="100">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">% Apple Silicon</span>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Apple Silicon</span>
                 </div>
             </div>
         </div>
@@ -978,9 +905,6 @@
             <div class="product-grid">
                 <!-- GLADIATOR - Featured -->
                 <div class="product-card featured scroll-reveal">
-                    <span class="nvidia-badge">
-                        ⚡ NVIDIA DGX Spark
-                    </span>
                     <span class="product-badge">
                         🔥 Flagship Product
                     </span>
@@ -1135,7 +1059,7 @@
                 <h2>Ready to <span class="gradient-text">Transform</span> Your Infrastructure?</h2>
                 <p>Join enterprise teams deploying battle-tested AI at scale</p>
                 <div class="cta-group" style="justify-content: center;">
-                    <a href="mailto:hello@dellight.ai" class="btn btn-primary">Schedule a Demo →</a>
+                    <a href="mailto:arthur.dell@dellight.ai" class="btn btn-primary">Schedule a Demo →</a>
                     <a href="about.html" class="btn btn-secondary">Learn About Us</a>
                 </div>
             </div>
@@ -1158,7 +1082,7 @@
                     <ul>
                         <li><a href="about.html">About</a></li>
                         <li><a href="infrastructure.html">Infrastructure</a></li>
-                        <li><a href="mailto:hello@dellight.ai">Contact</a></li>
+                        <li><a href="mailto:arthur.dell@dellight.ai">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -1172,7 +1096,7 @@
                 <div class="footer-section">
                     <h3>Connect</h3>
                     <ul>
-                        <li><a href="mailto:hello@dellight.ai">hello@dellight.ai</a></li>
+                        <li><a href="mailto:arthur.dell@dellight.ai">arthur.dell@dellight.ai</a></li>
                         <li>Dubai, UAE</li>
                         <li>Enterprise AI Infrastructure</li>
                     </ul>
@@ -1185,72 +1109,6 @@
     </div>
 
     <script>
-        // Custom Cursor
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-
-            setTimeout(() => {
-                cursorFollower.style.left = e.clientX + 'px';
-                cursorFollower.style.top = e.clientY + 'px';
-            }, 100);
-        });
-
-        // Cursor hover effect
-        document.querySelectorAll('a, button, .product-card').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-        });
-
-        // Parallax orbs
-        window.addEventListener('mousemove', (e) => {
-            const orbs = document.querySelectorAll('.orb');
-            const x = (e.clientX / window.innerWidth) - 0.5;
-            const y = (e.clientY / window.innerHeight) - 0.5;
-
-            orbs.forEach((orb, index) => {
-                const speed = (index + 1) * 30;
-                orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-            });
-        });
-
-        // Counter animation
-        function animateCounter(element) {
-            const target = parseInt(element.dataset.target);
-            const duration = 2000;
-            const increment = target / (duration / 16);
-            let current = 0;
-
-            const counter = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.querySelector('.stat-number').textContent = target + (element.querySelector('.stat-label').textContent.includes('K+') ? 'K+' : element.querySelector('.stat-label').textContent.includes('%') ? '%' : 'GB');
-                    clearInterval(counter);
-                } else {
-                    element.querySelector('.stat-number').textContent = Math.floor(current);
-                }
-            }, 16);
-        }
-
-        // Scroll-triggered counter animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-                    entry.target.classList.add('counted');
-                    if (entry.target.dataset.target) {
-                        animateCounter(entry.target);
-                    }
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.stat-item').forEach(item => {
-            observer.observe(item);
-        });
-
         // Scroll effects
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('nav');
@@ -1260,45 +1118,41 @@
                 nav.classList.remove('scrolled');
             }
 
-            // Reveal elements
+            // Reveal elements on scroll
             const reveals = document.querySelectorAll('.scroll-reveal');
             reveals.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
-                if (elementTop < window.innerHeight - 150) {
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
                     element.classList.add('revealed');
                 }
             });
         });
 
-        // Smooth scroll
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
 
-        // 3D tilt effect on product cards
-        document.querySelectorAll('.product-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+        // Parallax effect for orbs
+        window.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.orb');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
 
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = '';
+            orbs.forEach((orb, index) => {
+                const speed = (index + 1) * 50;
+                orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
             });
         });
     </script>
