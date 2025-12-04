@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dellight AI - Battle-tested AI infrastructure and autonomous cyber defense for enterprise">
-    <meta name="keywords" content="AI Infrastructure, Cybersecurity, Machine Learning, Enterprise AI, Autonomous Defense">
-    <title>Dellight AI - Enterprise AI Infrastructure & Cyber Defense</title>
+    <meta name="description" content="Dellight AI - Enterprise AI infrastructure, autonomous cyber defense, and multi-agent orchestration built on Apple Silicon">
+    <meta name="keywords" content="AI Infrastructure, Cybersecurity, GLADIATOR, Multi-Agent Systems, Machine Learning, Enterprise AI">
+    <title>Dellight AI - Battle-Tested AI Infrastructure & Autonomous Defense</title>
     <style>
         * {
             margin: 0;
@@ -14,24 +14,32 @@
         }
 
         :root {
+            /* Colors */
+            --dark-bg: #0A0A0A;
+            --dark-surface: #1A1A1A;
+            --dark-elevated: #2A2A2A;
             --gold: #D4AF37;
             --gold-dark: #B8941F;
-            --dark: #0A0A0A;
-            --dark-surface: #1A1A1A;
-            --gray: #2A2A2A;
+            --red: #EF4444;
+            --red-dark: #DC2626;
+            --blue: #38BDF8;
+            --purple: #A855F7;
+            --green: #22C55E;
             --white: #FFFFFF;
             --white-dim: #E8E8E8;
+            --gray: #9CA3AF;
+            --gray-dark: #6B7280;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
-            background: var(--dark);
+            background: var(--dark-bg);
             color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Animated Grid Background */
+        /* Grid Background */
         .grid-background {
             position: fixed;
             top: 0;
@@ -39,19 +47,18 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            background: 
-                linear-gradient(90deg, rgba(212,175,55,0.03) 1px, transparent 1px),
-                linear-gradient(rgba(212,175,55,0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
+            background:
+                linear-gradient(90deg, rgba(212,175,55,0.02) 1px, transparent 1px),
+                linear-gradient(rgba(212,175,55,0.02) 1px, transparent 1px);
+            background-size: 80px 80px;
             animation: gridPulse 20s ease-in-out infinite;
         }
 
         @keyframes gridPulse {
             0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
+            50% { opacity: 0.5; }
         }
 
-        /* Radial Gradient Overlay */
         .gradient-overlay {
             position: fixed;
             top: 0;
@@ -59,69 +66,131 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            background: radial-gradient(circle at 50% 50%, rgba(212,175,55,0.08) 0%, rgba(10,10,10,0.95) 70%);
+            background: radial-gradient(circle at 50% 20%, rgba(212,175,55,0.06) 0%, rgba(10,10,10,0.98) 60%);
             pointer-events: none;
         }
 
-        /* Content Container */
         .content {
             position: relative;
             z-index: 10;
         }
 
-        /* Header */
-        header {
-            padding: 2rem 4rem;
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212,175,55,0.1);
+            padding: 1.5rem 4rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 4rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .nav-container {
+            max-width: 1640px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
             letter-spacing: 2px;
             color: var(--gold);
             text-transform: uppercase;
+            text-decoration: none;
         }
 
-        .logo-sub {
-            font-size: 0.7rem;
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
             color: var(--white-dim);
-            letter-spacing: 3px;
-            font-weight: 400;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 85vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 4rem 4rem 2rem;
-            max-width: 1400px;
+            padding: 6rem 4rem 4rem;
+            max-width: 1640px;
             margin: 0 auto;
         }
 
+        .hero-content {
+            max-width: 900px;
+        }
+
         h1 {
-            font-size: clamp(3rem, 7vw, 6rem);
+            font-size: clamp(3rem, 8vw, 7rem);
             font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
+            line-height: 1.05;
+            margin-bottom: 2rem;
+            letter-spacing: -3px;
         }
 
         .hero-gold {
             color: var(--gold);
             display: block;
+            background: linear-gradient(135deg, var(--gold) 0%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-size: clamp(1.2rem, 2.5vw, 1.9rem);
             color: var(--white-dim);
             max-width: 800px;
             margin-bottom: 3rem;
             font-weight: 300;
+            line-height: 1.5;
         }
 
         .cta-group {
@@ -133,28 +202,28 @@
 
         .btn {
             padding: 1.2rem 3rem;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            border: none;
         }
 
         .btn-primary {
             background: var(--gold);
-            color: var(--dark);
-            border: 2px solid var(--gold);
+            color: var(--dark-bg);
+            box-shadow: 0 4px 20px rgba(212,175,55,0.3);
         }
 
         .btn-primary:hover {
             background: var(--gold-dark);
-            border-color: var(--gold-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212,175,55,0.4);
         }
 
         .btn-secondary {
@@ -164,40 +233,98 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(212,175,55,0.1);
-            transform: translateY(-2px);
+            background: rgba(212,175,55,0.15);
+            transform: translateY(-3px);
         }
 
-        /* Products Section */
-        .products {
-            padding: 4rem;
-            max-width: 1400px;
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--dark-surface);
+            border-top: 1px solid rgba(212,175,55,0.15);
+            border-bottom: 1px solid rgba(212,175,55,0.15);
+            padding: 4rem 4rem;
+        }
+
+        .stats-container {
+            max-width: 1640px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+        .stat-item:nth-child(4) { animation-delay: 0.4s; }
+        .stat-item:nth-child(5) { animation-delay: 0.5s; }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 4rem;
+            max-width: 1640px;
             margin: 0 auto;
         }
 
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            margin-bottom: 3rem;
+        .section-header {
             text-align: center;
-            letter-spacing: -1px;
+            margin-bottom: 5rem;
         }
 
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Product Grid */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
             margin-bottom: 4rem;
         }
 
         .product-card {
             background: var(--dark-surface);
-            border: 1px solid rgba(212,175,55,0.2);
+            border: 1px solid rgba(212,175,55,0.15);
+            border-radius: 12px;
             padding: 3rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .product-card::before {
@@ -206,57 +333,82 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 3px;
+            height: 4px;
             background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
         }
 
         .product-card:hover {
             border-color: var(--gold);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(212,175,55,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(212,175,55,0.2);
         }
 
         .product-card:hover::before {
             opacity: 1;
         }
 
-        /* GLADIATOR Card with Hero Image */
-        .product-card.gladiator-featured {
-            background-image: url('gladiator-hero.png');
+        /* Featured Product (GLADIATOR) */
+        .product-card.featured {
+            grid-column: span 2;
+            background: linear-gradient(135deg, rgba(239,68,68,0.08) 0%, rgba(10,10,10,0.95) 100%),
+                        url('gladiator-hero.png');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            border-color: var(--gold);
             min-height: 500px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
+            border-color: var(--red);
         }
 
-        .product-card.gladiator-featured::after {
+        .product-card.featured::before {
+            background: linear-gradient(90deg, var(--red) 0%, transparent 100%);
+        }
+
+        .product-card.featured::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.85) 60%, rgba(10,10,10,0.95) 100%);
+            background: linear-gradient(180deg, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.85) 60%, rgba(10,10,10,0.98) 100%);
             z-index: 0;
         }
 
-        .product-card.gladiator-featured > * {
+        .product-card.featured > * {
             position: relative;
             z-index: 1;
         }
 
-        .product-card.gladiator-featured .product-icon {
-            display: none;
+        .product-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(212,175,55,0.15);
+            color: var(--gold);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
         }
 
-        .product-card.gladiator-featured:hover {
-            box-shadow: 0 30px 60px rgba(212,175,55,0.3);
+        .product-badge.red {
+            background: rgba(239,68,68,0.15);
+            color: var(--red);
+        }
+
+        .product-badge.blue {
+            background: rgba(56,189,248,0.15);
+            color: var(--blue);
+        }
+
+        .product-badge.purple {
+            background: rgba(168,85,247,0.15);
+            color: var(--purple);
         }
 
         .product-icon {
@@ -265,28 +417,36 @@
         }
 
         .product-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--gold);
         }
 
+        .product-card.featured .product-title {
+            color: var(--red);
+            font-size: 2.5rem;
+        }
+
         .product-description {
             color: var(--white-dim);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
         }
 
         .product-features {
             list-style: none;
             padding: 0;
+            margin-bottom: 2rem;
         }
 
         .product-features li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
+            padding: 0.6rem 0;
+            padding-left: 1.8rem;
             position: relative;
             color: var(--white-dim);
+            font-size: 0.95rem;
         }
 
         .product-features li::before {
@@ -294,67 +454,190 @@
             position: absolute;
             left: 0;
             color: var(--gold);
+            font-weight: bold;
         }
 
-        /* Stats Section */
-        .stats {
-            padding: 4rem;
+        .product-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .product-link:hover {
+            gap: 1rem;
+        }
+
+        .product-link::after {
+            content: '→';
+        }
+
+        /* Tech Stack Section */
+        .tech-stack {
             background: var(--dark-surface);
-            border-top: 1px solid rgba(212,175,55,0.2);
-            border-bottom: 1px solid rgba(212,175,55,0.2);
+            border-radius: 16px;
+            padding: 4rem;
+            margin: 4rem auto;
         }
 
-        .stats-grid {
-            max-width: 1200px;
-            margin: 0 auto;
+        .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
             text-align: center;
         }
 
-        .stat-number {
+        .tech-icon {
             font-size: 3rem;
-            font-weight: 900;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
-        .stat-label {
-            color: var(--white-dim);
-            text-transform: uppercase;
+        .tech-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .tech-desc {
+            color: var(--gray);
             font-size: 0.9rem;
-            letter-spacing: 1px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(212,175,55,0.08) 0%, rgba(10,10,10,0.9) 100%);
+            border-radius: 16px;
+            padding: 6rem 4rem;
+            margin: 4rem auto;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: var(--white-dim);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Footer */
         footer {
-            padding: 3rem 4rem;
-            text-align: center;
-            color: var(--white-dim);
-            font-size: 0.9rem;
+            background: var(--dark-surface);
+            border-top: 1px solid rgba(212,175,55,0.15);
+            padding: 4rem 4rem 2rem;
         }
 
-        footer a {
+        .footer-container {
+            max-width: 1640px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
             color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: var(--gray);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        footer a:hover {
+        .footer-section a:hover {
             color: var(--white);
         }
 
+        .footer-bottom {
+            max-width: 1640px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212,175,55,0.1);
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
         /* Responsive */
+        @media (max-width: 1024px) {
+            .product-card.featured {
+                grid-column: span 1;
+            }
+        }
+
         @media (max-width: 768px) {
-            header {
+            nav {
                 padding: 1.5rem 2rem;
-                flex-direction: column;
-                gap: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
             }
 
             .hero {
-                padding: 2rem;
+                padding: 4rem 2rem;
+            }
+
+            section {
+                padding: 4rem 2rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
             }
 
             .cta-group {
@@ -366,151 +649,361 @@
                 text-align: center;
             }
 
-            .products {
-                padding: 2rem;
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
 
-            .product-grid {
+            .tech-grid {
                 grid-template-columns: 1fr;
             }
 
-            .stats {
-                padding: 2rem;
-            }
-
-            .stats-grid {
+            .footer-container {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 3rem;
             }
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero > * {
-            animation: fadeInUp 0.8s ease-out forwards;
+        /* Scroll Reveal */
+        .scroll-reveal {
             opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
         }
 
-        .hero > *:nth-child(1) { animation-delay: 0.1s; }
-        .hero > *:nth-child(2) { animation-delay: 0.3s; }
-        .hero > *:nth-child(3) { animation-delay: 0.5s; }
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
     <div class="grid-background"></div>
     <div class="gradient-overlay"></div>
-    
+
     <div class="content">
-        <header>
-            <div>
-                <div class="logo">DELLIGHT AI</div>
-                <div class="logo-sub">Enterprise Infrastructure</div>
+        <!-- Navigation -->
+        <nav id="nav">
+            <div class="nav-container">
+                <a href="/" class="logo">DELLIGHT AI</a>
+                <div class="nav-links">
+                    <a href="#products">Products</a>
+                    <a href="gladiator.html">GLADIATOR</a>
+                    <a href="aya-platform.html">AYA Platform</a>
+                    <a href="solutions.html">Solutions</a>
+                    <a href="infrastructure.html">Infrastructure</a>
+                    <a href="about.html">About</a>
+                    <a href="mailto:arthur.dell@dellight.ai" class="btn btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Contact</a>
+                </div>
+                <button class="mobile-menu-btn">☰</button>
             </div>
-        </header>
+        </nav>
 
+        <!-- Hero Section -->
         <section class="hero">
-            <h1>
-                Battle-Tested AI<br>
-                <span class="hero-gold">Infrastructure & Defense</span>
-            </h1>
-            
-            <p class="hero-subtitle">
-                Enterprise-grade autonomous AI orchestration and cyber defense platforms. 
-                Built on Apple Silicon. Hardened for production. Deployed globally.
-            </p>
+            <div class="hero-content fade-in">
+                <h1>
+                    Battle-Tested<br>
+                    <span class="hero-gold">AI Infrastructure</span>
+                </h1>
 
-            <div class="cta-group">
-                <a href="mailto:arthur.dell@dellight.ai" class="btn btn-primary">Get in Touch</a>
-                <a href="#products" class="btn btn-secondary">Explore Products</a>
-            </div>
-        </section>
+                <p class="hero-subtitle">
+                    Enterprise-grade autonomous AI orchestration, adversarial cyber defense, and multi-agent systems.
+                    Built on Apple Silicon. Hardened for production. Deployed globally.
+                </p>
 
-        <section class="stats">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">512GB</div>
-                    <div class="stat-label">RAM Per Node</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">60+</div>
-                    <div class="stat-label">Active AI Agents</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Autonomous Operation</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Apple Silicon</div>
+                <div class="cta-group">
+                    <a href="mailto:arthur.dell@dellight.ai" class="btn btn-primary">Get Started</a>
+                    <a href="#products" class="btn btn-secondary">Explore Products</a>
                 </div>
             </div>
         </section>
 
-        <section class="products" id="products">
-            <h2 class="section-title">Our Platforms</h2>
-            
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">800GB</span>
+                    <span class="stat-label">Total RAM</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">160</span>
+                    <span class="stat-label">GPU Cores</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">132K+</span>
+                    <span class="stat-label">Vector Embeddings</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Autonomous Operation</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Apple Silicon</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <section id="products">
+            <div class="section-header">
+                <h2 class="section-title">Our Platforms</h2>
+                <p class="section-subtitle">
+                    Production-grade AI infrastructure and security solutions built for enterprise scale
+                </p>
+            </div>
+
             <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-icon">⚡</div>
+                <!-- GLADIATOR - Featured -->
+                <div class="product-card featured scroll-reveal">
+                    <span class="product-badge red">🔥 Flagship Product</span>
+                    <h3 class="product-title">GLADIATOR</h3>
+                    <p class="product-description">
+                        Autonomous cyber defense platform with ML-powered threat detection, adversarial training infrastructure,
+                        and distributed honeypot mesh. Production-ready December 2025.
+                    </p>
+                    <ul class="product-features">
+                        <li>3,134 high-quality attack patterns across 20+ categories</li>
+                        <li>Foundation-Sec-8B adversarial training</li>
+                        <li>Real-time binary & multi-class threat classification</li>
+                        <li>Distributed GitHub Actions workers on Apple Silicon</li>
+                    </ul>
+                    <a href="gladiator.html" class="product-link">Explore GLADIATOR</a>
+                </div>
+
+                <!-- AYA Platform -->
+                <div class="product-card scroll-reveal">
+                    <span class="product-badge blue">⚡ Foundation</span>
+                    <div class="product-icon">🔮</div>
                     <h3 class="product-title">AYA Platform</h3>
                     <p class="product-description">
-                        Multi-agent AI orchestration system with centralized state management, 
+                        Multi-agent AI orchestration system with PostgreSQL-backed state management,
                         autonomous task delegation, and enterprise-grade auditability.
                     </p>
                     <ul class="product-features">
-                        <li>PostgreSQL-backed state management</li>
-                        <li>GitHub Actions CI/CD automation</li>
-                        <li>Mac Studio M3 Ultra clusters</li>
-                        <li>MLX-optimized local LLMs</li>
-                    </ul>
-                </div>
-
-                <div class="product-card gladiator-featured">
-                    <div class="product-icon">🛡️</div>
-                    <h3 class="product-title">GLADIATOR</h3>
-                    <p class="product-description">
-                        Autonomous cyber defense platform with ML-powered threat detection, 
-                        distributed honeypot mesh, and adversarial training infrastructure.
-                    </p>
-                    <ul class="product-features">
-                        <li>K3s orchestration at scale</li>
-                        <li>Red/Blue team adversarial training</li>
-                        <li>Real-time threat classification</li>
-                        <li>Production-ready December 2025</li>
-                    </ul>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">🔒</div>
-                    <h3 class="product-title">Enterprise Security</h3>
-                    <p class="product-description">
-                        Post-quantum cryptography, zero-trust architecture, and air-gap capable 
-                        deployments for organizations demanding the highest security standards.
-                    </p>
-                    <ul class="product-features">
-                        <li>NIST-standardized quantum resistance</li>
+                        <li>Context Persistence Architecture (CPA v1.4.0)</li>
+                        <li>132,460 pgvector embeddings (768-dim)</li>
+                        <li>High-availability PostgreSQL clustering</li>
                         <li>Tailscale mesh networking</li>
-                        <li>Air-gap deployment ready</li>
-                        <li>Dubai-based operations</li>
                     </ul>
+                    <a href="aya-platform.html" class="product-link">Learn More</a>
+                </div>
+
+                <!-- Agent Turbo -->
+                <div class="product-card scroll-reveal">
+                    <span class="product-badge purple">⚙️ Performance</span>
+                    <div class="product-icon">🚀</div>
+                    <h3 class="product-title">Agent Turbo</h3>
+                    <p class="product-description">
+                        GPU-accelerated multi-agent system targeting 1000x performance with MLX optimization,
+                        100GB RAM disk caching, and intelligent token reduction.
+                    </p>
+                    <ul class="product-features">
+                        <li>MLX GPU acceleration (160 cores total)</li>
+                        <li>&lt;100ms response time (cached queries)</li>
+                        <li>&gt;80% token reduction on repeated ops</li>
+                        <li>Distributed execution across ALPHA/BETA</li>
+                    </ul>
+                    <a href="agent-turbo.html" class="product-link">Learn More</a>
+                </div>
+
+                <!-- JITM -->
+                <div class="product-card scroll-reveal">
+                    <div class="product-icon">🏭</div>
+                    <h3 class="product-title">JITM Platform</h3>
+                    <p class="product-description">
+                        AI-powered just-in-time manufacturing with automated procurement workflows,
+                        semantic manufacturer matching, and real-time order tracking.
+                    </p>
+                    <ul class="product-features">
+                        <li>Semantic manufacturer search (&lt;150ms)</li>
+                        <li>N8N workflow automation</li>
+                        <li>FastAPI RESTful service</li>
+                        <li>Active-Active clustering</li>
+                    </ul>
+                    <a href="solutions.html#jitm" class="product-link">Learn More</a>
+                </div>
+
+                <!-- Code Audit System -->
+                <div class="product-card scroll-reveal">
+                    <div class="product-icon">🔍</div>
+                    <h3 class="product-title">Code Audit System</h3>
+                    <p class="product-description">
+                        Autonomous code security analysis powered by Qwen3-Coder-480B and Claude Sonnet 4.5
+                        with real-time vulnerability detection.
+                    </p>
+                    <ul class="product-features">
+                        <li>Zero-cost unlimited audits (local Qwen3)</li>
+                        <li>SQL injection & security flaw detection</li>
+                        <li>Active-Active job queue</li>
+                        <li>Historical finding lifecycle tracking</li>
+                    </ul>
+                    <a href="solutions.html#code-audit" class="product-link">Learn More</a>
+                </div>
+
+                <!-- YARADELL -->
+                <div class="product-card scroll-reveal">
+                    <div class="product-icon">📊</div>
+                    <h3 class="product-title">YARADELL Analytics</h3>
+                    <p class="product-description">
+                        YouTube intelligence platform with automated audience analytics, AI-powered insights,
+                        and real-time dashboards.
+                    </p>
+                    <ul class="product-features">
+                        <li>Daily demographic snapshots</li>
+                        <li>Weekly AI-generated insights</li>
+                        <li>Automated PDF/Markdown reports</li>
+                        <li>Real-time engagement tracking</li>
+                    </ul>
+                    <a href="solutions.html#yaradell" class="product-link">Learn More</a>
                 </div>
             </div>
         </section>
 
+        <!-- Tech Stack Section -->
+        <section>
+            <div class="tech-stack scroll-reveal">
+                <div class="section-header">
+                    <h2 class="section-title">Technology Stack</h2>
+                    <p class="section-subtitle">
+                        Built on cutting-edge infrastructure for maximum performance and reliability
+                    </p>
+                </div>
+
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-icon">🍎</div>
+                        <div class="tech-name">Apple Silicon</div>
+                        <div class="tech-desc">Mac Studio M3 Ultra clusters with MLX optimization</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🐘</div>
+                        <div class="tech-name">PostgreSQL 18</div>
+                        <div class="tech-desc">High-availability clustering with pgvector search</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🤖</div>
+                        <div class="tech-name">LM Studio</div>
+                        <div class="tech-desc">Local LLM inference (Qwen3, GLM-4.5)</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">⚡</div>
+                        <div class="tech-name">N8N Workflows</div>
+                        <div class="tech-desc">Enterprise workflow automation</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🔄</div>
+                        <div class="tech-name">Temporal</div>
+                        <div class="tech-desc">Durable workflow orchestration</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">📊</div>
+                        <div class="tech-name">Grafana</div>
+                        <div class="tech-desc">Real-time monitoring & dashboards</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section>
+            <div class="cta-section scroll-reveal">
+                <h2>Ready to Transform Your Infrastructure?</h2>
+                <p>Join enterprise teams deploying battle-tested AI at scale</p>
+                <div class="cta-group" style="justify-content: center;">
+                    <a href="mailto:arthur.dell@dellight.ai" class="btn btn-primary">Schedule a Demo</a>
+                    <a href="about.html" class="btn btn-secondary">Learn About Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
         <footer>
-            <p>&copy; 2025 Dellight AI. All rights reserved. | 
-            <a href="mailto:arthur.dell@dellight.ai">arthur.dell@dellight.ai</a></p>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="gladiator.html">GLADIATOR</a></li>
+                        <li><a href="aya-platform.html">AYA Platform</a></li>
+                        <li><a href="agent-turbo.html">Agent Turbo</a></li>
+                        <li><a href="solutions.html">All Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="infrastructure.html">Infrastructure</a></li>
+                        <li><a href="mailto:arthur.dell@dellight.ai">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:arthur.dell@dellight.ai">arthur.dell@dellight.ai</a></li>
+                        <li>Dubai, UAE</li>
+                        <li>Enterprise AI Infrastructure</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dellight AI. All rights reserved. | Built on Apple Silicon 🍎</p>
+            </div>
         </footer>
     </div>
+
+    <script>
+        // Scroll effects
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            // Reveal elements on scroll
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('revealed');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileBtn?.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
